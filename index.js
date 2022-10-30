@@ -8,7 +8,7 @@ import userModel from './Model/UserModel.mjs'
 import UserRoute from './Routes/UserRoute.mjs'
 import AuthRouter from './Routes/AuthRoute.mjs'
 import postRoute from './Routes/postRoute.mjs'
-
+import uploadRoute from './Routes/uploadRoute.mjs'
 // Router
 
 
@@ -16,6 +16,9 @@ import postRoute from './Routes/postRoute.mjs'
 
 
 const app = express();
+// to serve image for public
+app.use(express.static('public'))
+app.use('/images',express.static('images'))
 
 
 
@@ -40,6 +43,8 @@ app.listen(4000, (po) => {});
 app.use('/auth',AuthRouter)
 app.use('/user',UserRoute)
 app.use('/post',postRoute)
+app.use('/upload',uploadRoute)
+
   
 
 

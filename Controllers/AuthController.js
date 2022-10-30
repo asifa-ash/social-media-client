@@ -18,7 +18,7 @@ if(oldUser){
 
 
     const user=await newUser.save();
-    const token=jwt.sign({username:user.username,id:user._id}
+    const token=jwt.sign({username:user.username,id:user._id,name:user.name}
       ,"MERN",{expiresIn:'1h'})
     res.status(200).json({user,token});
   } catch (error) {
